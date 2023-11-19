@@ -1,0 +1,29 @@
+/* Write your CSS here */
+
+.bgForTeamCards {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/ipl-dashboard-lg-bg.png');
+  background-size: cover;
+  height: 100%;
+  padding: 23px;
+}
+.TeamCardUl {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style-type: none;
+  flex-wrap: wrap;
+  font-family: Bree Serif;
+}
+.flexingTheLogo {
+  display: flex;
+  font-family: Bree Serif;
+  flex-direction: row;
+  justify-content: center;
+}
+.IPL-LOGO {
+  height: 100px;
+  width: 70px;
+}
+.IPLDashboardName {
+  font-size: 24px;
+}
