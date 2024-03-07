@@ -54,7 +54,7 @@ class HomeView extends Component {
             </ul>
           </div>
         ) : (
-          <div>
+          <div className="loader" testid="loader">
             <Loader type="Oval" color="#ffffff" height={50} width={50} />
           </div>
         )}

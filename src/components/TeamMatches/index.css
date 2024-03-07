@@ -1,7 +1,7 @@
 /* Write your CSS here */
 
 .NextPageBg {
-  height: 100%;
+  height: 100vh;
   background-image: linear-gradient(to bottom, #a4261d, #5755a7);
   padding: 18px;
   font-family: Bree Serif;
@@ -100,6 +100,38 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.loader {
+  background-color: hsl(217, 33%, 17%);
+  height: 100vh;
+  width: 100%;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-button {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  height: 44px;
+  width: 130px;
+  border-radius: 7px;
+  margin-bottom: 22px;
+  font-family: Roboto;
+  font-size: 17px;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.back-button-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 767px) {

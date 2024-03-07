@@ -1,6 +1,10 @@
 // Write your code here
 import {Component} from 'react'
 
+import {PieChart, Pie, Legend, Cell, ResponsiveContainer} from 'recharts'
+
+import {Link} from 'react-router-dom'
+
 import Loader from 'react-loader-spinner'
 
 // import MatchCards from '../MatchCard'
@@ -9,7 +13,15 @@ import './index.css'
 import MatchCards from '../MatchCard'
 
 class ChangeToThatLocation extends Component {
-  state = {NextPageDetails: {}, teamMatches: [], conditionStatus: false, Id: ''}
+  state = {
+    NextPageDetails: {},
+    teamMatches: [],
+    conditionStatus: false,
+    Id: '',
+    win: 0,
+    loss: 0,
+    draw: 0,
+  }
 
   componentDidMount() {
     this.statusToRequiredDetails()
@@ -52,16 +64,32 @@ class ChangeToThatLocation extends Component {
       }),
     )
 
+    const wonData = RecentMatchData.filter(
+      each => each.MatchWonOrLoss === 'Won',
+    )
+
+    const countWonData = wonData.length
+    const lossData = RecentMatchData.filter(
+      each => each.MatchWonOrLoss === 'Lost',
+    )
+    const countLossData = lossData.length
+    const drawData = RecentMatchData.filter(
+      each => each.MatchWonOrLoss === 'Draw',
+    )
+    const countDrawData = drawData.length
     this.setState({
       NextPageDetails: fillingDetails,
       teamMatches: RecentMatchData,
       conditionStatus: true,
       Id: id,
+      win: countWonData,
+      loss: countLossData,
+      draw: countDrawData,
     })
   }
 
   render() {
-    const {NextPageDetails, conditionStatus, Id} = this.state
+    const {NextPageDetails, conditionStatus, Id, win, loss, draw} = this.state
     const {
       Banner,
       Team,
@@ -76,8 +104,26 @@ class ChangeToThatLocation extends Component {
     } = NextPageDetails
 
     const {teamMatches} = this.state
+    console.log(`WinMatches:${win}`)
+    console.log(`LossMatches:${loss}`)
+    console.log(`DrawMatches:${draw}`)
 
     console.log(teamMatches)
+
+    const data = [
+      {
+        count: win,
+        language: 'Win',
+      },
+      {
+        count: loss,
+        language: 'Loss',
+      },
+      {
+        count: draw,
+        language: 'Draw',
+      },
+    ]
 
     return (
       <div className={Id}>
@@ -126,9 +172,47 @@ class ChangeToThatLocation extends Component {
                 ))}
               </ul>
             </div>
+            <div>
+              <div>
+                {' '}
+                <ResponsiveContainer width="100%" height={300}>
+                  <PieChart>
+                    <Pie
+                      cx="50%"
+                      cy="50%"
+                      data={data}
+                      startAngle={0}
+                      endAngle={360}
+                      innerRadius="60%"
+                      outerRadius="90%"
+                      dataKey="count"
+                    >
+                      <Cell name="Win" fill="#fecba6" />
+                      <Cell name="Loss" fill="#b3d23f" />
+                      <Cell name="Draw" fill="#a44c9e" />
+                    </Pie>
+
+                    <Legend
+                      iconType="circle"
+                      layout="vertical"
+                      verticalAlign="middle"
+                      align="center"
+                    />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+
+              <div className="back-button-style">
+                <Link to="/">
+                  <button className="back-button" type="button">
+                    Back
+                  </button>
+                </Link>
+              </div>
+            </div>
           </div>
         ) : (
-          <div>
+          <div className="loader" testid="loader">
             <Loader type="Oval" color="#ffffff" height={50} width={50} />
           </div>
         )}
