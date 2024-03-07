@@ -2,12 +2,14 @@
 
 import {Component} from 'react'
 
+import Loader from 'react-loader-spinner'
+
 import TeamCard from '../TeamCard'
 
 import './index.css'
 
 class HomeView extends Component {
-  state = {CollectionTeamCard: []}
+  state = {CollectionTeamCard: [], conditionStatusDeclared: false}
 
   componentDidMount() {
     this.statusChange()
@@ -22,29 +24,40 @@ class HomeView extends Component {
       id: each.id,
       TeamImages: each.team_image_url,
     }))
-    this.setState({CollectionTeamCard: collectionOfTeams})
+    this.setState({
+      CollectionTeamCard: collectionOfTeams,
+      conditionStatusDeclared: true,
+    })
   }
 
   render() {
-    const {CollectionTeamCard} = this.state
+    const {CollectionTeamCard, conditionStatusDeclared} = this.state
 
     return (
       <div className="bgForTeamCards">
-        <div className="flexingTheLogo">
+        {conditionStatusDeclared ? (
           <div>
-            <img
-              className="IPL-LOGO"
-              src="https://assets.ccbp.in/frontend/react-js/ipl-logo-img.png "
-              alt="ipl logo"
-            />
+            <div className="flexingTheLogo">
+              <div>
+                <img
+                  className="IPL-LOGO"
+                  src="https://assets.ccbp.in/frontend/react-js/ipl-logo-img.png "
+                  alt="ipl logo"
+                />
+              </div>
+              <h1 className="IPLDashboardName">IPL Dashboard</h1>
+            </div>
+            <ul className="TeamCardUl">
+              {CollectionTeamCard.map(each => (
+                <TeamCard eachElementOfTeam={each} key={each.id} />
+              ))}
+            </ul>
           </div>
-          <h1 className="IPLDashboardName">IPL Dashboard</h1>
-        </div>
-        <ul className="TeamCardUl">
-          {CollectionTeamCard.map(each => (
-            <TeamCard eachElementOfTeam={each} key={each.id} />
-          ))}
-        </ul>
+        ) : (
+          <div>
+            <Loader type="Oval" color="#ffffff" height={50} width={50} />
+          </div>
+        )}
       </div>
     )
   }

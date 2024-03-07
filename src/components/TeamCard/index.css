@@ -12,7 +12,19 @@
   margin: 13px;
   border-radius: 13px;
   padding: 9px;
+  text-decoration: none;
 }
 .TeamCardNames {
   font-size: 18px;
+
+  color: #ffffff;
+}
+.eachLinkItem {
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .ListForTeams {
+    width: 300px;
+  }
 }

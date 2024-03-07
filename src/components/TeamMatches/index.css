@@ -1,9 +1,138 @@
 /* Write your CSS here */
 
 .NextPageBg {
-  height: 100vh;
+  height: 100%;
+  background-image: linear-gradient(to bottom, #a4261d, #5755a7);
+  padding: 18px;
+  font-family: Bree Serif;
+  flex-wrap: wrap;
 }
+
+.RCB {
+  background-image: linear-gradient(to bottom, #a4261d, #5755a7);
+  height: 100%;
+  background-size: cover;
+}
+
+.CSK {
+  background-image: linear-gradient(to bottom, #f7db00, #5755a7);
+  height: 100%;
+  background-size: cover;
+}
+
+.DC {
+  background-image: linear-gradient(to bottom, #13418b, #f26d22);
+  height: 100%;
+  background-size: cover;
+}
+
+.KKR {
+  background-image: linear-gradient(to bottom, #13418b, #f26d22);
+  height: 100%;
+  background-size: cover;
+}
+
+.RR {
+  background-image: linear-gradient(to bottom, #f7db00, #5755a7);
+  height: 100%;
+  background-size: cover;
+}
+
+.MI {
+  background-image: linear-gradient(to bottom, #13418b, #f7db00);
+  height: 100%;
+  background-size: cover;
+}
+
+.SH {
+  background-image: linear-gradient(to bottom, #f26d22, #0f172a);
+  height: 100%;
+  background-size: cover;
+}
+
+.KXP {
+  background-image: linear-gradient(to bottom, #da237b, #d91c1f);
+  height: 100%;
+  background-size: cover;
+}
+
 .BannerStyle {
   height: 300px;
-  width: 600px;
+  width: 800px;
+  border-radius: 8px;
+  margin-top: 17px;
+}
+.cardOneOfTheTop {
+  width: 800px;
+  height: 400px;
+  background-color: #1e293b;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: #ffffff;
+  border-radius: 17px;
+  padding: 22px;
+}
+.TeamLogo {
+  height: 200px;
+  width: 200px;
+}
+.Banner {
+  text-align: center;
+}
+.belowTheBanner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Bree Serif;
+  flex-wrap: wrap;
+}
+.LatestMatch {
+  text-align: center;
+  margin-left: 200px;
+  width: 200px;
+  color: #ffffff;
+  font-family: Bree Serif;
+}
+.UlTeamMatches {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .BannerStyle {
+    width: 340px;
+    height: 180px;
+  }
+  .Banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .NextPageBg {
+    width: 100%;
+  }
+  .cardOneOfTheTop {
+    width: 340px;
+    flex-wrap: wrap;
+    height: 700px;
+    padding: 19px;
+    font-family: Bree Serif;
+  }
+  .TeamLogo {
+    height: 100px;
+    width: 100px;
+  }
+  .BottomRecentCards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-right: 35px;
+  }
 }

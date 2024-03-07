@@ -5,12 +5,14 @@
   background-size: cover;
   height: 100%;
   padding: 23px;
+
+  font-family: Bree Serif;
 }
 .TeamCardUl {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  list-style-type: none;
+
   flex-wrap: wrap;
   font-family: Bree Serif;
 }
@@ -25,5 +27,22 @@
   width: 70px;
 }
 .IPLDashboardName {
-  font-size: 24px;
+  font-size: 33px;
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .TeamCardUl {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 22px;
+  }
+  .bgForTeamCards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

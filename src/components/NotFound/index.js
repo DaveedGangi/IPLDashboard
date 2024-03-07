@@ -1,5 +1,10 @@
 // Write your code here
+import './index.css'
 
-const NotFoundData = () => <h1>Elements are not available</h1>
+const NotFoundData = () => (
+  <div className="NotFoundPage">
+    <h1 className="NotFound">Page Not Found</h1>
+  </div>
+)
 
 export default NotFoundData

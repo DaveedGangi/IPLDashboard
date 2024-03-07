@@ -8,7 +8,7 @@ const TeamCard = props => {
   const {Name, TeamImages, id} = eachElementOfTeam
 
   return (
-    <Link to={`/team-matches/${id}`} key={id}>
+    <Link to={`/team-matches/${id}`} key={id} className="eachLinkItem">
       <li className="ListForTeams">
         <img className="CardImageTeams" src={TeamImages} alt={Name} />
         <p className="TeamCardNames">{Name}</p>

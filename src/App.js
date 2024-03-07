@@ -10,9 +10,9 @@ import './App.css'
 
 const App = () => (
   <div>
-    <HomeView />
     <Switch>
-      <Route path="/team-matches/:id" component={ChangeToThatLocation} />
+      <Route exact path="/" component={HomeView} />
+      <Route exact path="/team-matches/:id" component={ChangeToThatLocation} />
       <Route component={NotFoundData} />
     </Switch>
   </div>
